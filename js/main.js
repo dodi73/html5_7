@@ -1,10 +1,11 @@
-//Egyedi azonosító
+//Egyedi azonosító, a szám generálva:
+//
 var az = "user_85847838";
 
 // Űrlap küldése
 function processForm(btn) {
     
-    //Jquery objektum a gombunkról
+    // Jquery objektum a gombunkról
     // Gomb
     var btn = $(btn);
     
@@ -24,18 +25,20 @@ function processForm(btn) {
         "data": data
     };    
     
-    //Post indítása itt a javascriptből, nem a böngésző küldi el!
+    //Post indítása innen javascriptből, és nem a böngésző küldi el!
     // 1 paraméter: a szerver címe, portja
-    // 2. az adatok objektumban, 3. Ami visszajön a szervertől függvénnyel kezelve
-    //$.post("http://nettuts.hu:3000, {}, function () {});
-    //  http://37.139.16.100:3000
-    //Szabványos JSON file-t készít: JSON.stringify(serverObj)
+    // 2. a küldendő adatok objektumban
+    // 3. Ami visszajön a szervertől függvénnyel kezelve
+    // $.post("http://nettuts.hu:3000, {}, function () {});
+    // http://37.139.16.100:3000
+    // Szabványos JSON file-t készít: JSON.stringify(serverObj)
     
-    $.post("127.0.0.1:3000", JSON.stringify(serverObj), function(response) {
+    $.post("http://127.0.0.1:3000", JSON.stringify(serverObj), function(response) {
         console.log(response);
     });
         
-    console.log(serverObj);
+    //console.log(serverObj);
     
+    // false , hogy ne küldje be az adatokat a böngésző
     return false;
 }

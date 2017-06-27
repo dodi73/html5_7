@@ -1,9 +1,14 @@
 // Ezen server.js file futtatása a linux webszerveren:
 // node server
 
+//Beépített NodeJS modul, ami engedi az adatforgalmat a HTTP fölött.
+//A HTTP modul létre tud hozni egy HTTP szervert, ami hallagt egy megadott porton és
+//választ ad a kliens kérésre.
+//az 'fs' modul a file kezelést szolgálja:
 var http = require('http'),
-    //qs = require('querystring'),
     fs = require('fs');
+//qs = require('querystring'),
+
 
 // Process options request.
 function processOptionsRequest(req, res) {
@@ -55,9 +60,10 @@ function processPost(req, res) {
         var post = {};
         try {
             post = JSON.parse(body);            
-            fs.writeFileSync('json/' + post.user + '.json', JSON.stringify(post.data));
+            //fs.appendFile('json/' + post.user + '.json', JSON.stringify(post.data));
+            fs.writeFileSync('../json/' + post.user + '.json', JSON.stringify(post.data));
         } catch (e) {
-            post = {"error": "Helytelen adatok.", "adat": body };
+            post = {"error": "Helytelen adatok! ", "adat": body };
         }
     
         // console.log(post);
@@ -74,9 +80,10 @@ function processPost(req, res) {
     });
 }
 
-
-// A szerver figyeli a kérést:
-http.createSerever(function(req, res) {
+//A HTTP modul létre tud hozni egy HTTP szervert, ami hallagt egy megadott porton és
+//választ (res) ad a kliens kérésre(req).
+// forrás: https://www.w3schools.com/nodejs/nodejs_http.asp
+http.createServer(function(req, res) {
                    
     // Option kérés kiszolgálása.
     if (req.method === "OPTION") {
