@@ -43,11 +43,75 @@
     <div class="container">
         <div class="starter-template">
             <h1>...</h1>
-            <p class="lead">Now you can start your own project with <a target="_blank" href="http://getbootstrap.com/">Bootstrap 3.3.7</a>. This plugin is a fork from <a href="https://github.com/le717/brackets-html-skeleton#readme">HTML Skeleton</a>.</p>
+            <div class="row">
+                <div class="col-xs-4 col-xs-offset-4">
+                    
+                    <!-- Regisztrációs űrlap -->
+                    <form class="form-horizontal reg-form">
+                      
+                      <!-- Felhasználónév -->
+                      <div class="form-group">
+                        <label for="username" class="col-sm-5 control-label">Felhasználónév</label>
+                        <div class="col-sm-7">
+                          <input name="username" type="text" class="form-control" id="username" placeholder="Felhasználónév">
+                        </div>
+                      </div>
+                      <!-- / Felhasználónév -->
+                      
+                       <!-- Cím -->
+                      <div class="form-group">
+                        <label for="address" class="col-sm-5 control-label">Cím</label>
+                        <div class="col-sm-7">
+                          <input name="address" type="text" class="form-control" id="address" placeholder="Cím">
+                        </div>
+                      </div>
+                      <!-- / Cím -->
+
+                       <!-- Telefon -->
+                      <div class="form-group">
+                        <label for="phone" class="col-sm-5 control-label">Telefon</label>
+                        <div class="col-sm-7">
+                          <input name="phone" type="text" class="form-control" id="phone" placeholder="Telefon">
+                        </div>
+                      </div>
+                      <!-- / Telefon -->
+                     
+                      <!-- Email -->
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-5 control-label">Email</label>
+                        <div class="col-sm-7">
+                          <input name="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                      </div>
+                      <!-- / Email -->
+                    
+                     <!-- Jelszó -->                                                                 
+                     <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-5 control-label">Password</label>
+                        <div class="col-sm-7">
+                          <input name="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                        </div>
+                      </div>
+                     <!-- / Jelszó -->
+                     
+                     <!-- Küldés Gomb -->
+                      <div class="form-group">
+                        <div class="col-sm-offset-5 col-sm-7">
+                          <button type="button" class="btn btn-default" onclick="processForm(this)">Sign in</button>
+                        </div>
+                      </div>
+                    </form>
+                    <!-- / Küldés Gomb -->
+                    
+                    <!-- / Regisztrációs űrlap -->
+                                           
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
