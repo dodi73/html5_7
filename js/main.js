@@ -31,11 +31,10 @@ function processForm(btn) {
     //  http://37.139.16.100:3000
     //Szabványos JSON file-t készít: JSON.stringify(serverObj)
     
-    $.post("37.139.16.100:3000", JSON.stringify(serverObj), function(response) {
+    $.post("127.0.0.1:3000", JSON.stringify(serverObj), function(response) {
         console.log(response);
     });
-    
-    
+        
     console.log(serverObj);
     
     return false;
