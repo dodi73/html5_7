@@ -26,16 +26,23 @@ function processOptionsRequest(req, res) {
 // Process server data.
 function processGetRequest(req, res) {
     
+    // A kérés url-je:
     console.log(req.url);
+    var az = req.url.split("/").pop();
     
     res.writeHead(200, {
         'Content-Type': 'text/plain',
         'Access-Control-Allow-Origin': '*',
     });
     
-    // Kiolvassuk a file tartalmát.
-    
-    var contents = fs.readFileSync('json/user.json').toString();
+    // Kiolvassuk a file tartalmát. Ha még nem töltött fel semmit, akkor az
+    //alalpértelmezett user.json fogja megkapni.
+    try {
+        var contents = fs.readFileSync('../json/' + az + '.json').toString();        
+    } catch(e) {
+        var contents = fs.readFileSync('../json/user.json').toString();                
+    }
+
     res.end(contents);
     
 }
@@ -63,7 +70,8 @@ function processPost(req, res) {
             //fs.appendFile('json/' + post.user + '.json', JSON.stringify(post.data));
             fs.writeFileSync('../json/' + post.user + '.json', JSON.stringify(post.data));
         } catch (e) {
-            post = {"error": "Helytelen adatok! ", "adat": body };
+            post = {"error": "Helytelen adatok! ",
+                    "adat": body };
         }
     
         // console.log(post);

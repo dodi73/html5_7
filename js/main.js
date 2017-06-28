@@ -42,3 +42,40 @@ function processForm(btn) {
     // false , hogy ne küldje be az adatokat a böngésző
     return false;
 }
+
+// Adatok visszakérdezése a szerverről
+function getData(btn) {
+    
+    //GET kérés
+    $.getJSON("http://127.0.0.1:3000/" + az, function(response) {
+        console.log(response);
+        
+        //Űrlap kiválasztása, megkeresi a szülő fomr -ot
+        //Azért így, mert a btn változóra, paraméterre nem látki a getJSON függvényből,
+        // ebben vagyunk itt. Ezért $, Jquery-vel hivatkozok a form-ra:        
+        var form = $(".reg-form");
+    
+        form.find("input").each(function(index, input) {
+            var name = input.name;
+            //Ha van ilyen nevű elem a responsba, visszaírjuk az űrlapmezőkbe:
+            if ( response[name] ) {
+            input.value = response[name];
+            }
+        });    
+        
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
