@@ -51,13 +51,13 @@ function getData(btn) {
         console.log(response);
         
         //Űrlap kiválasztása, megkeresi a szülő fomr -ot
-        //Azért így, mert a btn változóra, paraméterre nem látki a getJSON függvényből,
-        // ebben vagyunk itt. Ezért $, Jquery-vel hivatkozok a form-ra:        
+        //Azért így, mert a btn változóra, paraméterre nem lát ki a getJSON függvényből,
+        // ebben vagyunk itt. Ezért $-os Jquery-vel hivatkozok a form-ra:        
         var form = $(".reg-form");
     
         form.find("input").each(function(index, input) {
             var name = input.name;
-            //Ha van ilyen nevű elem a responsba, visszaírjuk az űrlapmezőkbe:
+            //Ha van ilyen nevű elem a responsba, visszaírjuk az űrlapmezőbe:
             if ( response[name] ) {
             input.value = response[name];
             }

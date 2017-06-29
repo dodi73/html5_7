@@ -1,0 +1,67 @@
+<div class="row">
+                <div class="col-xs-4 col-xs-offset-4">
+                    
+                    <!-- Regisztrációs űrlap -->
+                    <form class="form-horizontal reg-form" data-ng-controller="formController">
+                      
+                      <!-- Felhasználónév -->
+                      <div class="form-group">
+                        <label for="username" class="col-sm-5 control-label">Felhasználónév</label>
+                        <div class="col-sm-7">
+                          <input name="username" data-ng-model="username" type="text" class="form-control" id="username" placeholder="Felhasználónév">
+                        </div>
+                      </div>
+                      <!-- / Felhasználónév -->
+                      
+                       <!-- Cím -->
+                      <div class="form-group">
+                        <label for="address" class="col-sm-5 control-label">Cím</label>
+                        <div class="col-sm-7">
+                          <input name="address" data-ng-model="address" type="text" class="form-control" id="address" placeholder="Cím">
+                        </div>
+                      </div>
+                      <!-- / Cím -->
+
+                       <!-- Telefon -->
+                      <div class="form-group">
+                        <label for="phone" class="col-sm-5 control-label">Telefon</label>
+                        <div class="col-sm-7">
+                          <input name="phone" data-ng-model="phone" type="text" class="form-control" id="phone" placeholder="Telefon">
+                        </div>
+                      </div>
+                      <!-- / Telefon -->
+                     
+                      <!-- Email -->
+                      <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-5 control-label">Email</label>
+                        <div class="col-sm-7">
+                          <input name="email" data-ng-model="email" type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                      </div>
+                      <!-- / Email -->
+                    
+                     <!-- Jelszó -->                                                                 
+                     <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-5 control-label">Password</label>
+                        <div class="col-sm-7">
+                          <input name="password" data-ng-model="password" type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                        </div>
+                      </div>
+                     <!-- / Jelszó -->
+                     
+                     <!-- Küldés Gomb -->
+                      <div class="form-group">
+                        <div class="col-xs-6">
+                          <button type="button" class="btn btn-default" data-ng-click="getData()">Lekérés</button>
+                        </div>
+                        <div class="col-xs-6">
+                          <button type="button" class="btn btn-default" data-ng-click="processForm()">Küldés</button>
+                        </div>
+                       </div>
+                    </form>
+                    <!-- / Küldés Gomb -->
+                    
+                    <!-- / Regisztrációs űrlap -->
+                                           
+                </div>
+</div>
