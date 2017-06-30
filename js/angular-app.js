@@ -35,17 +35,19 @@ testModule.controller("formController", function ($scope, $http) {
     //form.html-en belül átírjuk a küldés gombot.
     
     //Meglévő adatok lekérése
-    $http.get('http://127.0.0.1:3000/' + az)
+    $http.get("http://127.0.0.1:3000/" + az)
         .success(function (data) {
             $scope.user = data;
         })
-        .error(function (error) { console.error("Hiba a lekérés során GET: ", error); });
+        .error(function (error) { 
+            console.error("Hiba a lekérés során GET: ", error);
+        });
     
     
     //Adatok mentése. Ez fog lefutni, ha rákattintok a Küldés gombra.
     //A $scope-on belül keres egy processForm függvényt, ami az alábbiakat végzi:
     //Elküldöm az adatokat a szerverre, nem http GET-et indítok, hanem POST-ot.
-    $scope.processForm = function() {
+    $scope.processForm = function () {
         
         //serverObj:Objektum készítése, amit elküldünk a szerverre
         //A teljes user csomagot elküldjük, itt se kell mezőnként végigmenni, egybe elküldhető:    
@@ -55,11 +57,15 @@ testModule.controller("formController", function ($scope, $http) {
         };    
         
         //Adatok küldése a szerverre
-        $http.post("http://127.0.0.1:3000/", serverObj).success(function(data) {
+        $http.post("http://127.0.0.1:3000/", serverObj)
+            .success(function (data) {
                 console.log("A szerver válasza: ", data);
-            }).error(function(error) { console.error("Hiba a lekérés során POST: ", error); }); 
+            })
+            .error(function (error) { 
+                console.error("Hiba a lekérés során POST: ", error);
+            }); 
         
-    }
+    };
     
 
 });
