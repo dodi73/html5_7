@@ -12,6 +12,7 @@ var http = require('http'),
 
 // Process options request.
 function processOptionsRequest(req, res) {
+    
     res.writeHead(200, {
         'Content-Type': 'text/plain',
         'Access-Control-Allow-Origin': '*',
@@ -25,21 +26,21 @@ function processOptionsRequest(req, res) {
 
 // Process server data.
 function processGetRequest(req, res) {
-    
+        
     // A kérés url-je:
     console.log(req.url);
     var az = req.url.split("/").pop();
     
     res.writeHead(200, {
         'Content-Type': 'text/plain',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': '*'
     });
     
     // Kiolvassuk a file tartalmát. Ha még nem töltött fel semmit, akkor az
     //alalpértelmezett user.json fogja megkapni.
     try {
         var contents = fs.readFileSync('../json/' + az + '.json').toString();        
-    } catch(e) {
+    } catch (e) {
         var contents = fs.readFileSync('../json/user.json').toString();                
     }
 
@@ -94,9 +95,11 @@ function processPost(req, res) {
 http.createServer(function(req, res) {
                    
     // Option kérés kiszolgálása.
+    
     if (req.method === "OPTION") {
         return processOptionsRequest(req, res);
     };
+    
 
     // GET kérés kiszolgálása.
     if (req.method === "GET") {
